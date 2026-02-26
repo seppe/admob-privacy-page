@@ -1,0 +1,1 @@
+# admob-privacy-page
