@@ -40,12 +40,12 @@
             color: #fff;
         }
         .btn-check:active, .btn-show-form:active { opacity: 0.8; }
-        #privacyEntryBtn {
+        .privacyEntryBtn {
             display: none;
             background: #5856D6;
             color: #fff;
         }
-        #privacyEntryBtn.visible { display: block; }
+        .privacyEntryBtn.visible { display: block; }
         .log {
             margin-top: 12px;
             padding: 12px;
@@ -68,7 +68,7 @@
         <button class="btn-show-form" onclick="loadPrivacyForm()">
             event:16 - 加载并显示广告隐私设置表单
         </button>
-        <button id="privacyEntryBtn" onclick="loadPrivacyForm()">
+        <button id="privacyEntryBtn" class="privacyEntryBtn" onclick="loadPrivacyForm()">
             广告隐私设置入口（由原生控制显隐）
         </button>
     </div>
@@ -83,9 +83,11 @@
         // 返回广告隐私设置按钮是否显示状态
         // param: { type: 7, content: { state: "0" | "1" } }  1:显示 0:隐藏
         function ionEvent(param) {
+
             if (!param || typeof param !== 'object') return;
             if (param.type === 7 && param.content) {
                 var state = param.content.state;
+                // 测试时只保留一行: state = '1' 显示 / state = '0' 隐藏，不要同一行写两个赋值
                 var entryBtn = document.getElementById('privacyEntryBtn');
                 if (state === '1') {
                     entryBtn.classList.add('visible');
