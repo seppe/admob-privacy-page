@@ -85,7 +85,7 @@
         function ionEvent(param) {
 
             if (!param || typeof param !== 'object') return;
-            if (param.type === 7 && param.content) {
+            if (param.type === '7' && param.content) {
                 var state = param.content.state;
                 // 测试时只保留一行: state = '1' 显示 / state = '0' 隐藏，不要同一行写两个赋值
                 var entryBtn = document.getElementById('privacyEntryBtn');
